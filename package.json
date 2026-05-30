@@ -1,0 +1,31 @@
+{
+  "name": "corellium-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Code-mode MCP server for Corellium: two tools (search + run) over the full API surface, plus a quality evaluator.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "spec:pull": "tsx scripts/pull-spec.ts",
+    "gen:types": "openapi-typescript src/spec/openapi.json -o src/primitives/schema.d.ts",
+    "smoke": "tsx scripts/smoke.ts",
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "sandbox:smoke": "tsx scripts/sandbox-smoke.ts"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "isolated-vm": "^5.0.4",
+    "openapi-fetch": "^0.13.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.1",
+    "openapi-typescript": "^7.6.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.5"
+  }
+}

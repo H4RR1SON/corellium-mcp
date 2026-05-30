@@ -1,0 +1,19 @@
+# Secrets — NEVER commit
+.env
+.env.*
+!.env.example
+
+# Build + deps
+node_modules/
+dist/
+
+# Runtime artifacts (screenshots, pcaps, coretrace dumps captured from devices)
+artifacts/
+
+# Eval outputs
+eval/reports/
+eval/.cache/
+
+# OS / editor
+.DS_Store
+*.log
