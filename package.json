@@ -14,12 +14,16 @@
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run",
-    "sandbox:smoke": "tsx scripts/sandbox-smoke.ts"
+    "sandbox:smoke": "tsx scripts/sandbox-smoke.ts",
+    "mcp:smoke": "tsx scripts/mcp-smoke.ts",
+    "serve": "tsx src/server.ts"
   },
   "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
     "dotenv": "^16.4.7",
     "isolated-vm": "^5.0.4",
-    "openapi-fetch": "^0.13.5"
+    "openapi-fetch": "^0.13.5",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@types/node": "^22.13.1",
