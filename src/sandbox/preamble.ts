@@ -9,9 +9,10 @@
  * top-level lexical (const/let) bindings, so everything the user code needs is
  * attached to `globalThis` from inside an IIFE that closes over the private helpers.
  *
- * P2 extends `corellium` with per-tag namespaces and ergonomic wrappers by
- * appending to PREAMBLE_EXTENSIONS.
+ * P2 extends `corellium` with ergonomic wrappers (see ./wrappers.ts), appended
+ * after the core below.
  */
+import { WRAPPERS_JS } from "./wrappers.js";
 
 const PREAMBLE_CORE = /* js */ `
 (() => {
@@ -63,13 +64,6 @@ const PREAMBLE_CORE = /* js */ `
 })();
 `;
 
-// Filled in by P2 (namespaces + wrappers). Appended after the core.
-export let PREAMBLE_EXTENSIONS = "";
-
-export function setPreambleExtensions(js: string): void {
-  PREAMBLE_EXTENSIONS = js;
-}
-
 export function buildPreamble(): string {
-  return PREAMBLE_CORE + "\n" + PREAMBLE_EXTENSIONS;
+  return PREAMBLE_CORE + "\n" + WRAPPERS_JS;
 }
